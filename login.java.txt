@@ -1,0 +1,111 @@
+package hms;
+
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+public class login extends JFrame implements ActionListener
+{
+	JLabel title;
+	JLabel lname;
+	JLabel lpass;
+	JLabel aff;
+	JTextField tn;
+	JPasswordField tp;
+	JButton login;
+	JButton clear;
+	
+	login()
+	{
+		title = new JLabel();
+		title.setText("Hospital Management System");
+		title.setFont(new Font("MV Boli",Font.BOLD,25));
+		title.setBounds(20,20,400,40);
+		title.setForeground(Color.ORANGE);
+		
+		
+		lname = new JLabel();
+		lname.setText("UserName");
+		lname.setBounds(30,100, 200, 50);
+		lname.setFont(new Font("Arial",Font.BOLD,15));
+		lname.setForeground(Color.white);
+		
+		lpass = new JLabel();
+		lpass.setText("Password");
+		lpass.setBounds(30,150,100,50);
+		lpass.setFont(new Font("Arial",Font.BOLD,15));
+		lpass.setForeground(Color.white);
+		
+		aff = new JLabel("Encrypted By Faisal Khan");
+		aff.setForeground(Color.cyan);
+		aff.setBounds(110, 250, 300, 30);
+		
+		
+		tn = new JTextField();
+		tn.setBounds(120,110,190,30);
+		tn.setFont(new Font("MV Boli",Font.BOLD,20));
+		
+		tp = new JPasswordField();
+		tp.setBounds(120,155,190,30);
+		tp.setFont(new Font("MV Boli",Font.BOLD,20));
+		
+		login = new JButton("Login");
+		login.setBounds(120,200,65,30);
+		login.setFocusable(false);
+		login.addActionListener(this);
+		
+		clear = new JButton("Clear");
+		clear.setBounds(200,200,65,30);
+		clear.setFocusable(false);
+		clear.addActionListener(this);
+		
+		this.setSize(420,330);
+		this.setTitle("Hospital Management System");
+		this.getContentPane().setBackground(Color.DARK_GRAY);
+		this.setResizable(false);
+		this.setLayout(null);
+		this.add(title);
+		this.add(lname);
+		this.add(lpass);
+		this.add(tn);
+		this.add(tp);
+		this.add(login);
+		this.add(clear);
+		this.add(aff);
+		this.setLocation(500, 100);
+		this.setVisible(true);
+		
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+				
+		if(e.getSource()==login)
+		{
+			String name = tn.getText();
+			String password = tp.getText();
+			if(name.equals("faisal") && password.equals("12345"))
+			{
+				this.dispose();
+				//frontwindow window = new frontwindow();
+				//this.dispose();
+				newwindow obj = new newwindow();
+				//JOptionPane.showMessageDialog(null,"Welcome","Success",JOptionPane.INFORMATION_MESSAGE);
+			}
+			else
+			{
+				JOptionPane.showMessageDialog(null,"Incorrect USer/Password",
+						"Error",JOptionPane.ERROR_MESSAGE);
+			}
+		}
+		if(e.getSource()==clear)
+		{
+			tn.setText("");
+			tp.setText("");
+		}
+	}
+}

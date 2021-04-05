@@ -1,0 +1,277 @@
+package hms;
+
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+public class newwindow extends JFrame implements ActionListener
+{
+	JButton opdb;
+	JButton xrayb;
+	JButton ultrasoundb;
+	JButton labb;
+	
+	
+	JLabel titlelabel;
+	JLabel logo;
+	
+	JLabel accfaisal;
+	JLabel accuser;
+	JMenuBar menu;
+	JMenu file;
+	JMenu edit;
+	JMenu help;
+	JMenu search;
+	JMenu Department;
+	
+	JMenuItem open;
+	JMenuItem save;
+	JMenuItem exit;
+	
+	JMenuItem find;
+	JMenuItem findreplace;
+	JMenuItem delete;
+	
+	JMenuItem OPD;
+	JMenuItem Xray;
+	JMenuItem UltraSound;
+	JMenuItem Laboratory;
+	JButton logout;
+	newwindow()
+	{
+		ImageIcon icon = new ImageIcon("logo.jfif");
+		logo = new JLabel();
+		logo.setBounds(0,0,200,100);
+		logo.setIcon(icon);
+		
+		titlelabel = new JLabel();
+		titlelabel.setText("Hospital Management System");
+		titlelabel.setFont(new Font("MV Boli",Font.BOLD,35));
+		titlelabel.setForeground(Color.black);
+		titlelabel.setBounds(215, 25, 700, 50);
+		
+		accuser = new JLabel("User:");
+		accuser.setFont(new Font("Consolas",Font.BOLD,20));
+		accuser.setBounds(1000,0,100,50);
+		accuser.setForeground(Color.black);
+		
+		
+		accfaisal = new JLabel("Faisal Khan");
+		accfaisal.setBounds(1060,0,150,50);
+		accfaisal.setFont(new Font("Consolas",Font.BOLD,20));
+		accfaisal.setForeground(Color.black);
+		
+		logout = new JButton("Logout");
+		logout.setBounds(1194,5,100,30);
+		logout.setFont(new Font("Arial",Font.BOLD,15));
+		logout.addActionListener(this);
+		logout.setFocusable(false);
+		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(1310,700);
+		this.setLayout(new FlowLayout());
+		menu = new JMenuBar();
+		menu.setBackground(Color.white);
+		menu.setForeground(Color.white);
+		menu.setBounds(0,50, 1310,90);
+		
+		file = new JMenu("File");
+		file.setForeground(Color.black);
+		edit = new JMenu("Edit");
+		edit.setForeground(Color.black);
+		help = new JMenu("Help");
+		help.setForeground(Color.black);
+		search = new JMenu("Search");
+		search.setForeground(Color.black);
+		Department = new JMenu("Departent");
+		Department.setForeground(Color.black);
+		
+		file.setFont(new Font("Arial",Font.PLAIN,15));
+		edit.setFont(new Font("Arial",Font.PLAIN,15));
+		help.setFont(new Font("Arial",Font.PLAIN,15));
+		search.setFont(new Font("Arial",Font.PLAIN,15));
+		Department.setFont(new Font("Arial",Font.PLAIN,15));
+		
+		
+		open = new JMenuItem ("New");
+		save = new JMenuItem ("Save");
+		exit = new JMenuItem("Exit");
+		
+		open.setMnemonic(KeyEvent.VK_N); //N for new
+		save.setMnemonic(KeyEvent.VK_S);//N for new
+		exit.setMnemonic(KeyEvent.VK_E); //N for new
+//		OPD.setMnemonic(KeyEvent.VK_O); //N for new
+//		Xray.setMnemonic(KeyEvent.VK_X);//N for new
+//		UltraSound.setMnemonic(KeyEvent.VK_U); //N for new
+		
+		
+		find = new JMenuItem("Find");
+		findreplace = new JMenuItem("Find/Replace");
+		delete = new JMenuItem("Delete");
+		
+		
+		OPD = new JMenuItem("OPD");
+		Xray = new JMenuItem("Xray");
+		UltraSound = new JMenuItem("UltraSound");
+		Laboratory = new JMenuItem("Laboratory");
+		
+		open.addActionListener(this);
+		save.addActionListener(this);
+		exit.addActionListener(this);
+		OPD.addActionListener(this);
+		Xray.addActionListener(this);
+		UltraSound.addActionListener(this);
+		Laboratory.addActionListener(this);
+		
+		file.add(open);
+		file.add(save);
+		file.add(exit);
+		
+		edit.add(find);
+		edit.add(findreplace);
+		edit.add(delete);
+		
+		Department.add(OPD);
+		Department.add(Xray);
+		Department.add(UltraSound);
+		Department.add(Laboratory);
+		
+		menu.add(file);
+		menu.add(edit);
+		menu.add(search);
+		menu.add(help);
+		menu.add(Department);
+		
+		
+		opdb = new JButton("OPD");
+		opdb.setBounds(300, 200, 100, 50);
+		opdb.setFocusable(false);
+		opdb.setForeground(Color.gray);
+		opdb.setBackground(Color.white);
+		opdb.setFont(new Font("Consolas",Font.BOLD,20));
+		opdb.addActionListener(this);
+		
+		xrayb = new JButton("X-RAY");
+		xrayb.setBounds(500, 200, 100, 50);
+		xrayb.setFocusable(false);
+		xrayb.setForeground(Color.gray);
+		xrayb.setBackground(Color.white);
+		xrayb.setFont(new Font("Consolas",Font.BOLD,20));
+		xrayb.addActionListener(this);
+		
+		ultrasoundb = new JButton("UltraSound");
+		ultrasoundb.setBounds(700, 200, 200, 50);
+		ultrasoundb.setFocusable(false);
+		ultrasoundb.setForeground(Color.gray);
+		ultrasoundb.setBackground(Color.white);
+		ultrasoundb.setFont(new Font("Consolas",Font.BOLD,20));
+		ultrasoundb.addActionListener(this);
+		
+		labb = new JButton("Laboratory");
+		labb.setBounds(300, 300, 200, 50);
+		labb.setFocusable(false);
+		labb.setForeground(Color.gray);
+		labb.setBackground(Color.white);
+		labb.setFont(new Font("Consolas",Font.BOLD,20));
+		labb.addActionListener(this);
+		
+		this.getContentPane().setBackground(Color.white);
+		
+		this.add(logout);
+		this.setJMenuBar(menu);
+		this.add(accfaisal);
+		this.add(accuser);
+		this.add(titlelabel);
+		this.add(logo);
+		
+		this.add(opdb);
+		this.add(xrayb);
+		this.add(ultrasoundb);
+		this.add(labb);
+		
+		this.setLayout(null);
+		this.setSize(1600,750);
+		this.setLocation(0, 0);
+		this.setVisible(true);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getSource()==opdb)
+		{
+			opd opd3 = new opd();
+		}
+		if(e.getSource()==xrayb)
+		{
+			xray xray1 = new xray();
+		}
+		if(e.getSource()==ultrasoundb)
+		{
+			ultrasound us = new ultrasound();
+		}
+		if(e.getSource()==labb)
+		{
+			lab b = new lab();
+		}
+		if(e.getSource()==OPD)
+		{
+			opd opd1 = new opd();
+			this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
+		}
+		if(e.getSource()==Xray)
+		{
+			xray xray = new xray();
+			this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
+		}
+		if(e.getSource()==UltraSound)
+		{
+			ultrasound ultrasound = new ultrasound();
+			this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
+		}
+		if(e.getSource()==Laboratory)
+		{
+			lab b = new lab();
+			this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
+		}
+		if(e.getSource()==open)
+		{
+			this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
+			opd opd = new opd();
+//			JLabel label = new JLabel("HELLO ");
+//			JFrame form = new JFrame("     MYForm");
+//			form.setSize(300,300);
+//			form.setDefaultCloseOperation(form.DISPOSE_ON_CLOSE);
+//			form.setLayout(new FlowLayout());
+//			form.add(label);
+//			form.setVisible(true);
+		}
+		if(e.getSource()==exit)
+		{
+			System.exit(0);
+			close();
+		}
+		if(e.getSource()==logout)
+		{
+	        this.dispose();
+			login obj = new login();
+		}
+		
+	}
+	private void close() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}
